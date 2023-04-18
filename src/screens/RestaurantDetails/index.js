@@ -14,7 +14,7 @@ const RestaurantDetails = () => {
       <FlatList
         data={restaurant.dishes}
         renderItem={({ item }) => <DishListItem dish={item} />}
-        ListHeaderComponent={Header}
+        ListHeaderComponent={() => <Header restaurant={restaurant} />}
       />
       <Ionicons
         name="arrow-back-circle"
