@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     width: "100%",
-    paddingVertical: 20, //we need to remove when implement navigation
     padding: 10,
   },
   name: {

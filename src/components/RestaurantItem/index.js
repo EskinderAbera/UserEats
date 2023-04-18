@@ -1,9 +1,15 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, FlatList } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const RestaurantItem = ({ restaurant }) => {
+  const navigation = useNavigation();
+
+  const onPress = () => {
+    navigation.navigate("Restaurant", { id: restaurant?.id });
+  };
+
   return (
-    <View style={styles.restaurantContainer}>
+    <Pressable style={styles.restaurantContainer} onPress={onPress}>
       <Image
         source={{
           uri: restaurant.image,
@@ -23,7 +29,7 @@ const RestaurantItem = ({ restaurant }) => {
           <Text>{restaurant.rating.toFixed(1)}</Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
@@ -38,6 +44,8 @@ const styles = StyleSheet.create({
   restaurantContainer: {
     width: "100%",
     marginVertical: 10,
+    // marginHorizontal: 10,
+    // margin: 10,
   },
   title: {
     fontSize: 16,
